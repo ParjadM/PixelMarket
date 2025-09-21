@@ -1,0 +1,30 @@
+.footer-container {
+  width: 100%;
+  padding: 2rem 0;
+  margin-top: auto; 
+  background-color: #2C2C2C; 
+  text-align: center;
+  font-size: 0.9rem;
+  border-bottom-left-radius: 8px;  
+  border-bottom-right-radius: 8px; 
+}
+
+.footer-links {
+  margin-bottom: 1rem;
+}
+
+.footer-links a {
+  color: #FFFFFF; 
+  text-decoration: none;
+  margin: 0 1rem;
+  transition: color 0.2s ease-in-out;
+}
+
+.footer-links a:hover {
+  color: #CCCCCC; 
+}
+
+.footer-copyright {
+  color: #AAAAAA; 
+}
+
