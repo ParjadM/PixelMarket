@@ -3,19 +3,19 @@ body {
   padding: 0;
 }
 
-/* Sticky footer layout */
+
 html, body, #root {
   height: 100%;
 }
 
-/* App wrapper uses flex column to push footer to bottom on short pages */
+
 .app-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* Main content grows to fill available space */
+
 .main-content {
   flex: 1 0 auto;
 }
