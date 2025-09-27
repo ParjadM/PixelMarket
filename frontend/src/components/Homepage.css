@@ -1,0 +1,154 @@
+/* Page container */
+.app-container {
+  width: 100%;
+}
+
+/* Center main content */
+.main-content {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Hero */
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #C8E6C9; /* light green */
+  border-radius: 12px;
+  padding: 3rem 1.25rem;
+  margin: 2rem 0;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.hero-button {
+  background-color: #A5D6A7; /* darker green */
+  color: #333;
+  padding: 0.8rem 2.5rem;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.hero-button:hover {
+  background-color: #97c89a;
+}
+
+/* Featured */
+
+.featured-section {
+  padding: 2rem 0 3rem;
+  text-align: center;
+}
+
+.featured-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.featured-products-grid {
+  display: grid;
+  /* 3 cols on wide; wrap on small */
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Product cards */
+.product-card {
+  background: #e9e9e9;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: stretch;
+}
+
+.product-image-container {
+  background: #ffffff;
+  border-radius: 8px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.product-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.placeholder-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.product-info {
+  text-align: left;
+}
+
+.product-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.product-link-button {
+  margin-top: auto;
+  align-self: flex-start;
+  background: #BDE27B; /* green */
+  color: #333;
+  border: none;
+  border-radius: 14px;
+  padding: 0.4rem 1.25rem;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .featured-products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+.loading-text,
+.error-text {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.error-text {
+  color: #c44569; /* error red */
+}
+

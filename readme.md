@@ -11,3 +11,10 @@
     * npm run dev
 
 
+## Links
+* Figma Link: https://www.figma.com/design/9rE2rGzEAUiAl3fhKDQNVH/PixelMarket?node-id=0-1&p=f&t=9acmxnzp3c9K7e2F-0
+
+
+# Affiliated links
+* Amazon
+    * Your Associate Tag is: pixelmarket08-20
