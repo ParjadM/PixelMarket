@@ -1,7 +1,7 @@
 .footer-container {
   width: 100%;
-  padding: 0; /* remove all padding */
-  margin: 0; /* ensure no margins */
+  padding: 0;
+  margin: 0; 
   background-color: #2C2C2C;
   text-align: center;
   font-size: 0.9rem;
@@ -9,7 +9,7 @@
 
 .footer-links {
   margin: 0;
-  padding: 0.75rem 0 0.25rem; /* minimal vertical spacing */
+  padding: 0.75rem 0 0.25rem; 
 }
 
 .footer-links a {
@@ -25,6 +25,6 @@
 
 .footer-copyright {
   color: #AAAAAA;
-  padding: 0.5rem 0 0.75rem; /* minimal vertical spacing */
+  padding: 0.5rem 0 0.75rem;
 }
 

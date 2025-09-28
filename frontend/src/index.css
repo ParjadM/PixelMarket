@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: #222; /* dark frame */
+  background: #222; 
 }
 
 
@@ -21,16 +21,16 @@ html, body, #root {
   flex: 1 0 auto;
 }
 
-/* Page surface */
+
 .page-surface {
-  background: #d9d9d9; /* light grey */
+  background: #d9d9d9; 
   display: flex;
   flex-direction: column;
-  flex: 1 0 auto; /* fill height */
-  padding: 0; /* no side padding; header/footer full-bleed */
+  flex: 1 0 auto; 
+  padding: 0; 
 }
 
-/* Center main only */
+
 .page-surface .main-content {
   width: min(1200px, 100%);
   margin: 0 auto;

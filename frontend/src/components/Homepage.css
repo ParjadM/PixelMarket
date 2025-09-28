@@ -1,9 +1,8 @@
-/* Page container */
 .app-container {
   width: 100%;
 }
 
-/* Center main content */
+
 .main-content {
   width: min(1200px, 100%);
   margin: 0 auto;
@@ -17,7 +16,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: #C8E6C9; /* light green */
+  background-color: #C8E6C9; 
   border-radius: 12px;
   padding: 3rem 1.25rem;
   margin: 2rem 0;
@@ -37,7 +36,7 @@
 }
 
 .hero-button {
-  background-color: #A5D6A7; /* darker green */
+  background-color: #A5D6A7; 
   color: #333;
   padding: 0.8rem 2.5rem;
   border: none;
@@ -69,7 +68,6 @@
 
 .featured-products-grid {
   display: grid;
-  /* 3 cols on wide; wrap on small */
   grid-template-columns: repeat(3, minmax(220px, 1fr));
   gap: 1.5rem;
 }
@@ -125,7 +123,7 @@
 .product-link-button {
   margin-top: auto;
   align-self: flex-start;
-  background: #BDE27B; /* green */
+  background: #BDE27B; 
   color: #333;
   border: none;
   border-radius: 14px;

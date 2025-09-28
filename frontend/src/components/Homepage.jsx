@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Homepage.css';
 import axios from 'axios';
 
-// Inline card used for homepage featured products
+
 
 const ProductCard = ({ product }) => {
   const title = product.title || product.productName;

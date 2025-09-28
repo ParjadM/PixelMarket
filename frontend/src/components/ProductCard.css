@@ -1,5 +1,5 @@
 .product-card {
-  background-color: var(--card-bg, #f7f2ff); /* overridable via --card-bg */
+  background-color: var(--card-bg, #f7f2ff); 
   border: 1px solid var(--card-border, #e0d1f5);
   border-radius: 12px;
   padding: 1rem;
@@ -22,7 +22,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff; /* white image area */
+  background-color: #ffffff; 
   border-radius: 8px;
   overflow: hidden;
 }
@@ -39,7 +39,7 @@
 }
 
 .product-info {
-  flex-grow: 1; /* push button to bottom */
+  flex-grow: 1; 
   margin-bottom: 1rem;
 }
 
@@ -51,7 +51,7 @@
 
 .product-link-button {
   display: inline-block;
-  background-color: #BDE27B; /* green CTA */
+  background-color: #BDE27B; 
   color: #333;
   padding: 0.75rem 1.5rem;
   border-radius: 25px;

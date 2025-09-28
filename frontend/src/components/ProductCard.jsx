@@ -1,7 +1,6 @@
 import React from 'react';
 import './ProductCard.css';
 
-// ProductCard: renders an image, title, and outbound product link
 const ProductCard = ({ product }) => {
   const title = product.title || product.productName;
   const imageUrl = product.imageUrl;
