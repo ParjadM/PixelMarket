@@ -1,0 +1,107 @@
+.signinPage {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 4rem;
+  padding-bottom: 5rem;
+}
+
+.signinCard {
+  background: #b9edc2;
+  width: min(660px, 100% - 4rem);
+  padding: 3rem 4rem 2.4rem;
+}
+
+.signinCard h1 {
+  margin: 0 0 2.4rem;
+  text-align: center;
+  font-size: 2.3rem;
+  letter-spacing: 1px;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 0.9rem;
+  align-items: center;
+  margin-bottom: 1.4rem;
+}
+
+.formRow label {
+  font-size: 1rem !important;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.formRow input {
+  padding: 0.6rem 0.75rem;
+  border: none;
+  background: #fff;
+  font-size: 0.9rem;
+}
+
+.formRow input:focus {
+  box-shadow: 0 0 0 2px #96cfa5 inset;
+  outline: none;
+}
+
+.formActions {
+  display: flex;
+  justify-content: center;
+  gap: 1.75rem;
+  margin: 1.1rem 0 0.6rem;
+}
+
+.btn {
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  padding: 0.7rem 2.3rem;
+  border-radius: 40px;
+  font-weight: 600;
+}
+
+.btnPrimary {
+  background: #b3c613;
+}
+
+.btnPrimary:hover {
+  background: #a4b710;
+}
+
+.btnSecondary {
+  background: #678a71;
+  color: #fff;
+}
+
+.btnSecondary:hover {
+  background: #5c7b64;
+}
+
+.policyNote {
+  text-align: center;
+  font-size: 0.65rem;
+  margin: 0.4rem 0 0;
+}
+
+@media (max-width: 640px) {
+  .signinCard {
+    padding: 2.5rem 1.75rem 2rem;
+    width: 100%;
+  }
+  .formRow {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+  .formActions {
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+  .btn {
+    width: 100%;
+  }
+}
+
+

@@ -1,63 +1,56 @@
-.content-page {
+.contentPage {
   padding: 2rem 0 3rem;
 }
 
-.page-title {
+.pageTitle {
   text-align: center;
   font-size: 2.25rem;
   margin: 0 0 2rem 0;
   color: #333;
 }
 
-.product-category {
+.productCategory {
   width: min(1200px, 100%);
   margin: 0 auto 2.5rem;
   padding: 0 1rem;
 }
 
-.category-title {
+.categoryTitle {
   font-size: 1rem;
   letter-spacing: 1px;
   color: #333;
   margin: 0 0 1rem 0;
 }
 
-.products-grid {
+.productsGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(220px, 1fr));
   gap: 2rem;
 }
 
-/* Card color variants per row */
-.product-category:nth-of-type(1) .product-card {
-  --card-bg: #F1EEF7; 
+/* Set CSS variables per row; they cascade into ProductCard */
+.productCategory:nth-of-type(1) {
+  --card-bg: #F1EEF7;
   --card-border: #e1d8f0;
 }
-.product-category:nth-of-type(2) .product-card {
+.productCategory:nth-of-type(2) {
   --card-bg: #D6B3FF;
   --card-border: #c39cf0;
 }
-.product-category:nth-of-type(3) .product-card {
-  --card-bg: #8A2BE2; 
+.productCategory:nth-of-type(3) {
+  --card-bg: #8A2BE2;
   --card-border: #7a22cb;
-}
-
-
-.product-category:nth-of-type(3) .product-title {
-  color: #fff;
-}
-.product-category:nth-of-type(3) .product-link-button {
-  color: #222;
+  --product-title-color: #fff;
 }
 
 @media (max-width: 900px) {
-  .products-grid {
+  .productsGrid {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
 }
 
-.loading-message,
-.error-message {
+.loadingMessage,
+.errorMessage {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,6 +60,8 @@
   padding: 2rem;
 }
 
-.error-message {
+.errorMessage {
   color: #c44569;
 }
+
+

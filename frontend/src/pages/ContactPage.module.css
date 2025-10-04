@@ -1,0 +1,99 @@
+.contactPage {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-top: 4rem;
+  padding-bottom: 5rem;
+}
+
+.contactCard {
+  background: #ddf5d3;
+  width: min(860px, 100% - 8rem);
+  padding: 3rem 4rem 2.6rem;
+  margin-left: 70px;
+}
+
+.contactCard h1 {
+  margin: 0 0 2.6rem;
+  text-align: center;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 0.9rem;
+  align-items: start;
+  margin-bottom: 1.4rem;
+}
+
+.contactPage .formRow label {
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.formRow input,
+.formRow textarea {
+  padding: 0.6rem 0.75rem;
+  border: none;
+  background: #fff;
+  font-size: 0.9rem;
+  resize: vertical;
+}
+
+.formRow input:focus,
+.formRow textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #9bcfa5 inset;
+}
+
+.formRowTextarea textarea {
+  min-height: 130px;
+}
+
+.formActions {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.8rem;
+}
+
+.btn {
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  padding: 0.7rem 2.3rem;
+  border-radius: 40px;
+  font-weight: 600;
+}
+
+.btnPrimary {
+  background: #b3c613;
+}
+
+.btnPrimary:hover {
+  background: #a4b710;
+}
+
+@media (max-width: 860px) {
+  .contactCard {
+    margin-left: 0;
+    width: 100%;
+    padding: 2.5rem 2rem 2.2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .formRow {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .formRow label {
+    font-size: 0.85rem;
+  }
+}
+
+

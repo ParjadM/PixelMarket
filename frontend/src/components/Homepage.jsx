@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './Homepage.css';
+import { useNavigate } from 'react-router-dom';
+import styles from './Homepage.module.css';
 import axios from 'axios';
 
 
@@ -8,22 +9,28 @@ const ProductCard = ({ product }) => {
   const title = product.title || product.productName;
   const imageUrl = product.imageUrl;
   const link = product.detailPageURL || product.affiliateUrl || product.buyUrl;
+  const navigate = useNavigate();
+  const id = product.asin || product.id || product.sku;
 
   return (
-    <div className="product-card">
-      <div className="product-image-container">
+    <div className={styles.productCard}>
+      <div className={styles.productImageContainer}>
         {imageUrl ? (
-          <img src={imageUrl} alt={title} className="product-image" />
+          <img src={imageUrl} alt={title} className={styles.productImage} />
         ) : (
-          <div className="placeholder-image">No Image</div>
+          <div className={styles.placeholderImage}>No Image</div>
         )}
       </div>
-      <div className="product-info">
-        <h3 className="product-title">{title}</h3>
+      <div className={styles.productInfo}>
+        <h3 className={styles.productTitle}>{title}</h3>
       </div>
-      <a href={link} target="_blank" rel="noopener noreferrer" className="product-link-button">
+      <button
+        type="button"
+        className={styles.productLinkButton}
+        onClick={() => navigate(`/product/${id}`, { state: { product: { ...product, id } } })}
+      >
         View Product
-      </a>
+      </button>
     </div>
   );
 };
@@ -54,28 +61,28 @@ const Homepage = () => {
   }, []);
 
   return (
-    <>
-      <div className="hero-container">
-        <h1 className="hero-title">DISCOVER THE PIXELMARKET</h1>
-        <p className="hero-subtitle">BUILDING DIGITAL DREAMS, ONE PIXEL AT A TIME.</p>
-        <a href="/content" className="hero-button">DISCOVER OUR CONTENT</a>
+    <div className={styles.pageWrap}>
+      <div className={styles.heroContainer}>
+        <h1 className={styles.heroTitle}>DISCOVER THE PIXELMARKET</h1>
+        <p className={styles.heroSubtitle}>BUILDING DIGITAL DREAMS, ONE PIXEL AT A TIME.</p>
+        <a href="/content" className={styles.heroButton}>DISCOVER OUR CONTENT</a>
       </div>
 
-      <section className="featured-section">
-        <h2 className="featured-title">FEATURE PRODUCTS</h2>
+      <section className={styles.featuredSection}>
+        <h2 className={styles.featuredTitle}>FEATURE PRODUCTS</h2>
         {loading ? (
-          <p className="loading-text">Loading...</p>
+          <p className={styles.loadingText}>Loading...</p>
         ) : error ? (
-          <p className="error-text">{error}</p>
+          <p className={styles.errorText}>{error}</p>
         ) : (
-          <div className="featured-products-grid">
+          <div className={styles.featuredProductsGrid}>
             {featuredProducts.map(product => (
               <ProductCard key={product.asin} product={product} />
             ))}
           </div>
         )}
       </section>
-    </>
+    </div>
   );
 };
 

@@ -18,3 +18,19 @@
 # Affiliated links
 * Amazon
     * Your Associate Tag is: pixelmarket08-20
+
+# npm packaged used
+* Frontend:
+axios
+react
+react-dom
+react-router-dom
+
+* Backend:
+express
+cors
+dotenv
+mongoose
+bcryptjs
+jsonwebtoken
+express-async-handler

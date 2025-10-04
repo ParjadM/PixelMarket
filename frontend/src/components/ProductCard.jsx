@@ -1,26 +1,33 @@
 import React from 'react';
-import './ProductCard.css';
+import { Link, useNavigate } from 'react-router-dom';
+import styles from './ProductCard.module.css';
 
 const ProductCard = ({ product }) => {
   const title = product.title || product.productName;
   const imageUrl = product.imageUrl;
   const link = product.detailPageURL || product.affiliateUrl || product.buyUrl;
+  const navigate = useNavigate();
 
   return (
-    <div className="product-card">
-      <div className="product-image-container">
+    <div className={styles.productCard}>
+      <div className={styles.productImageContainer}>
         {imageUrl ? (
-          <img src={imageUrl} alt={title} className="product-image" />
+          <img src={imageUrl} alt={title} className={styles.productImage} />
         ) : (
-          <div className="placeholder-image">No Image</div>
+          <div className={styles.placeholderImage}>No Image</div>
         )}
       </div>
-      <div className="product-info">
-        <h3 className="product-title">{title}</h3>
+      <div className={styles.productInfo}>
+        <h3 className={styles.productTitle}>{title}</h3>
       </div>
-      <a href={link} target="_blank" rel="noopener noreferrer" className="product-link-button">
-        View Product
-      </a>
+      <div className={styles.pcActions}>
+        <button
+          className={styles.pcBtn}
+          onClick={() => navigate(`/product/${product.id}`, { state: { product } })}
+        >
+          View Product
+        </button>
+      </div>
     </div>
   );
 };

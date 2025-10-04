@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
-import './ContentPage.css';
+import styles from './ContentPage.module.css';
 
 const ContentPage = () => {
   const [amazonProducts, setAmazonProducts] = useState([]);
@@ -36,36 +37,36 @@ const ContentPage = () => {
     fetchAllProducts();
   }, []);
 
-  if (loading) return <div className="loading-message">Loading Products...</div>;
-  if (error) return <div className="error-message">{error}</div>;
+  if (loading) return <div className={styles.loadingMessage}>Loading Products...</div>;
+  if (error) return <div className={styles.errorMessage}>{error}</div>;
 
   return (
-    <div className="content-page">
-      <h1 className="page-title">Discover Our Content</h1>
+    <div className={styles.contentPage}>
+      <h1 className={styles.pageTitle}>Discover Our Content</h1>
 
-      <section className="product-category">
-        <h2 className="category-title">Amazon</h2>
-        <div className="products-grid">
-          {amazonProducts.slice(0, 3).map(product => (
-            <ProductCard key={product.asin} product={product} />
+      <section className={styles.productCategory}>
+        <h2 className={styles.categoryTitle}>Amazon</h2>
+        <div className={styles.productsGrid}>
+          {amazonProducts.slice(0, 3).map((product, i) => (
+            <ProductCard key={product.asin} product={{ ...product, id: product.asin }} />
           ))}
         </div>
       </section>
 
-      <section className="product-category">
-        <h2 className="category-title">ClickBank</h2>
-        <div className="products-grid">
-          {clickBankProducts.slice(0, 3).map(product => (
-            <ProductCard key={product.id} product={product} />
+      <section className={styles.productCategory}>
+        <h2 className={styles.categoryTitle}>ClickBank</h2>
+        <div className={styles.productsGrid}>
+          {clickBankProducts.slice(0, 3).map((product, i) => (
+            <ProductCard key={product.id} product={{ ...product, id: product.id }} />
           ))}
         </div>
       </section>
 
-      <section className="product-category">
-        <h2 className="category-title">Bay Partner Network</h2>
-        <div className="products-grid">
-          {bayPartnerProducts.slice(0, 3).map(product => (
-            <ProductCard key={product.sku} product={product} />
+      <section className={styles.productCategory}>
+        <h2 className={styles.categoryTitle}>Bay Partner Network</h2>
+        <div className={styles.productsGrid}>
+          {bayPartnerProducts.slice(0, 3).map((product, i) => (
+            <ProductCard key={product.sku} product={{ ...product, id: product.sku }} />
           ))}
         </div>
       </section>

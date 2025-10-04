@@ -1,20 +1,30 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './Header.css';
+import { NavLink, Link } from 'react-router-dom';
+import styles from './Header.module.css';
 
-function Header() {
+const Header = () => {
   return (
-    <header className="header">
-      <Link to="/" className="header-logo">
-        PixelMarket
-      </Link>
-      <nav className="header-nav">
-        <Link to="/content">Content</Link>
-        <Link to="/contact">Contact</Link>
-        <Link to="/signin">Sign In</Link>
-      </nav>
+    <header className={styles.header}>
+      <div className={styles.headerInner}>
+        <div className={styles.logo}>
+          <Link to="/">PixelMarket</Link>
+        </div>
+        <nav className={styles.mainNav}>
+          <ul>
+            <li>
+              <NavLink to="/content">Content</NavLink>
+            </li>
+            <li>
+              <NavLink to="/contact">Contact</NavLink>
+            </li>
+            <li>
+              <NavLink to="/signin">Sign In</NavLink>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
   );
-}
+};
 
 export default Header;
