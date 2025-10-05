@@ -8,7 +8,6 @@ import contentRoutes from './routes/contentRoutes.js';
 import amazonRoutes from './routes/amazonRoutes.js';
 import clickBankRoutes from './routes/clickBankRoutes.js';
 import bayPartnerRoutes from './routes/bayPartnerRoutes.js';
-// 1. Import the new user routes
 import userRoutes from './routes/userRoutes.js';
 
 dotenv.config();

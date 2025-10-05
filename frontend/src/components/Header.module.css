@@ -11,7 +11,7 @@
 
 .logo a {
   text-decoration: none;
-  font-size: 2rem;        /* was 1.55rem */
+  font-size: 2rem;        
   font-weight: 600;
   color: #000;
 }
@@ -26,7 +26,7 @@
 
 .mainNav a {
   text-decoration: none;
-  font-size: 1rem;        /* was 0.8rem */
+  font-size: 1rem;       
   color: #000;
 }
 

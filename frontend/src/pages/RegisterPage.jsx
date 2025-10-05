@@ -15,7 +15,6 @@ const RegisterPage = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    // submit logic placeholder
   };
 
   const handleBack = () => {

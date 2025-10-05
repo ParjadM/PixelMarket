@@ -15,7 +15,7 @@ const ProductInfoPage = () => {
     if (passed) return;
     const load = async () => {
       try {
-        const res = await fetch('/api/content'); // expects combined products
+        const res = await fetch('/api/content');
         const data = await res.json();
         const found = data.find(p => String(p.id) === String(id));
         if (!found) setError('Product not found');

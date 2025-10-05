@@ -16,7 +16,6 @@ const ContactPage = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    // submit placeholder
   };
 
   return (

@@ -13,7 +13,6 @@ const SignInPage = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    // auth submit placeholder
   };
 
   const goRegister = () => navigate('/register');
