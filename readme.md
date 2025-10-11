@@ -34,3 +34,11 @@ mongoose
 bcryptjs
 jsonwebtoken
 express-async-handler
+cookie-parser 
+
+
+admin user:
+admin@example.com
+
+regular user:
+test@example.com

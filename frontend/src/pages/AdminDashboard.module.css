@@ -1,0 +1,70 @@
+.adminPage {
+  padding: 2rem 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.topArea {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  min-height: 300px;
+}
+
+.welcomeText {
+  text-align: center;
+  margin: 0.5rem 0 0;
+  font-weight: 500;
+}
+
+.leftActions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  width: 220px;
+  align-self: flex-start;
+  margin-left: 70px;
+}
+
+.pillBtn {
+  border: none;
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.pillGreen {
+  background: #7fb889;
+  color: #0c2a12;
+}
+
+.bottomActions {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: auto;
+  margin-bottom: 2rem;
+}
+
+.bigBtn {
+  display: inline-block;
+  border: none;
+  border-radius: 18px;
+  padding: 0.6rem 1.6rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.homeBtn {
+  background: #b3c613;
+  color: #1c1c1c;
+}
+
+.addUserBtn {
+  background: #7fb889;
+  color: #0c2a12;
+}
+
+

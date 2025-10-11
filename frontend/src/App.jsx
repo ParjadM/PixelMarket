@@ -8,6 +8,9 @@ import SignInPage from './pages/SignInPage.jsx';
 import RegisterPage from './pages/RegisterPage.jsx';
 import ContactPage from './pages/ContactPage';
 import ProductInfoPage from './pages/ProductInfoPage';
+import AdminDashboard from './pages/AdminDashboard';
+import UserDetails from './pages/UserDetails';
+import ProductManagement from './pages/ProductManagement';
 
 
 function App() {
@@ -23,6 +26,9 @@ function App() {
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/product/:id" element={<ProductInfoPage />} />
+              <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="/admin/users" element={<UserDetails />} />
+              <Route path="/admin/products" element={<ProductManagement />} />
             </Routes>
           </main>
           <Footer />

@@ -1,0 +1,93 @@
+.page {
+  padding: 2rem 1rem 3rem;
+}
+
+.card {
+  background: #ffffff;
+  padding: 1.25rem 1.25rem 1.5rem;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem 0.75rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+.tableWrap {
+  background: #142518;
+  color: #e6f0e8;
+  padding: 1rem;
+}
+
+.tableHeader {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  font-size: 0.7rem;
+  opacity: 0.8;
+  margin-bottom: 0.75rem;
+}
+
+.tableBody {
+  display: grid;
+  gap: 0.75rem;
+  max-height: 260px;
+  overflow: auto;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+
+.rowActions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.pillBtn {
+  border: none;
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.edit {
+  background: #c7d957;
+  color: #22300e;
+}
+
+.delete {
+  background: #a0c296;
+  color: #102a14;
+}
+
+.bottomActions {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.bigBtn {
+  display: inline-block;
+  border: none;
+  border-radius: 18px;
+  padding: 0.6rem 1.6rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.homeBtn {
+  background: #b3c613;
+  color: #1c1c1c;
+}
+
+.addBtn {
+  background: #7fb889;
+  color: #0c2a12;
+}
+
+

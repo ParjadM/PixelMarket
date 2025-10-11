@@ -56,7 +56,6 @@
   background-color: #97c89a;
 }
 
-/* Featured */
 .featuredSection {
   padding: 2rem 0 3rem;
   text-align: center;
@@ -135,7 +134,6 @@
   font-size: 0.9rem;
 }
 
-/* Responsive */
 @media (max-width: 900px) {
   .featuredProductsGrid {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
