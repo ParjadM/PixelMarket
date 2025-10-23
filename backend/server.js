@@ -23,6 +23,18 @@ const app = express();
 // Connect to MongoDB once per cold start (serverless-safe)
 await connectDB();
 
+// Ensure a default admin account exists (idempotent)
+try {
+  const adminEmail = 'admin@example.com';
+  const admin = await User.findOne({ email: adminEmail });
+  if (!admin) {
+    await User.create({ name: 'Admin', email: adminEmail, password: '1234', role: 'admin' });
+    console.log('Default admin user created.');
+  }
+} catch (e) {
+  console.log('Admin seed skipped:', e.message);
+}
+
 // Middleware setup
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
