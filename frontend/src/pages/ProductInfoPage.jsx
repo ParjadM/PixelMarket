@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { buildApiUrl } from '../utils/api';
 import { useParams, useLocation, useNavigate, Link } from 'react-router-dom';
-import { buildApiUrl } from '../utils/api';
-import { buildApiUrl } from '../utils/api';
-import { buildApiUrl } from '../utils/api';
 import styles from './ProductInfoPage.module.css';
-import { buildApiUrl } from '../utils/api';
 
 // Product detail page with like/dislike functionality
 const ProductInfoPage = () => {

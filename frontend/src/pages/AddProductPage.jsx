@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { buildApiUrl } from '../utils/api';
 import { useNavigate, useParams } from 'react-router-dom';
-import { buildApiUrl } from '../utils/api';
 import styles from './AddProductPage.module.css';
-import { buildApiUrl } from '../utils/api';
 
 const AddProductPage = () => {
   const navigate = useNavigate();

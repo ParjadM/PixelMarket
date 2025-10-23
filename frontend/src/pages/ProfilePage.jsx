@@ -1,9 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { buildApiUrl } from '../utils/api';
 import { useNavigate } from 'react-router-dom';
-import { buildApiUrl } from '../utils/api';
 import styles from './EditUserPage.module.css';
-import { buildApiUrl } from '../utils/api';
 
 const ProfilePage = () => {
   const navigate = useNavigate();

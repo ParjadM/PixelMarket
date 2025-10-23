@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { buildApiUrl } from '../utils/api';
 import { useNavigate } from 'react-router-dom';
-import { buildApiUrl } from '../utils/api';
 import styles from './UserDetails.module.css';
-import { buildApiUrl } from '../utils/api';
 
 const UserDetails = () => {
   const navigate = useNavigate();

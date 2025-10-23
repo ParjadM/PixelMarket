@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { buildApiUrl } from '../utils/api';
 import styles from './AboutPage.module.css';
-import { buildApiUrl } from '../utils/api';
 
 const AboutPage = () => {
   const [body, setBody] = useState('');

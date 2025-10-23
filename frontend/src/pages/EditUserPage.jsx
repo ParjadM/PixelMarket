@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { buildApiUrl } from '../utils/api';
 import { useParams, useNavigate } from 'react-router-dom';
-import { buildApiUrl } from '../utils/api';
 import styles from './EditUserPage.module.css';
-import { buildApiUrl } from '../utils/api';
 
 const EditUserPage = () => {
   const { userId } = useParams();

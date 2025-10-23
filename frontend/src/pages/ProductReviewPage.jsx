@@ -1,9 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { buildApiUrl } from '../utils/api';
 import { useLocation, useParams, useNavigate, Link } from 'react-router-dom';
-import { buildApiUrl } from '../utils/api';
 import styles from './ProductInfoPage.module.css';
-import { buildApiUrl } from '../utils/api';
 
 const ProductReviewPage = () => {
   const { id } = useParams();
