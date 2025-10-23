@@ -20,10 +20,8 @@ dotenv.config();
 
 const app = express();
 
-// Connect to MongoDB (with error handling)
-connectDB().catch(err => {
-  console.error('Database connection failed:', err);
-});
+// Connect to MongoDB once per cold start (serverless-safe)
+await connectDB();
 
 // Middleware setup
 app.use(express.json());
