@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { buildApiUrl } from '../utils/api';
-import { buildApiUrl } from '../utils/api';
-import { buildApiUrl } from '../utils/api';
 import styles from './RegisterPage.module.css';
-import { buildApiUrl } from '../utils/api';
 
 const RegisterPage = () => {
   const [form, setForm] = useState({
@@ -32,7 +29,7 @@ const RegisterPage = () => {
       return;
     }
     try {
-      const res = await fetch('buildApiUrl('/')api/users', {
+      const res = await fetch(buildApiUrl('/api/users'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
