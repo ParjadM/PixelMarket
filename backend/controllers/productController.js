@@ -5,7 +5,7 @@ import Product from '../models/productModel.js';
 // Get all active products
 export const getAllProducts = asyncHandler(async (req, res) => {
   const products = await Product.find({ isActive: true }).sort({ createdAt: -1 });
-  res.json(products);
+  res.json(products || []);
 });
 
 // Get products by category
@@ -15,7 +15,7 @@ export const getProductsByCategory = asyncHandler(async (req, res) => {
     category: category.toUpperCase(), 
     isActive: true 
   }).sort({ createdAt: -1 });
-  res.json(products);
+  res.json(products || []);
 });
 
 // Get single product by ID

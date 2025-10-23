@@ -64,10 +64,7 @@ app.get('/api/products/featured/list', async (req, res) => {
   try {
     const { default: Product } = await import('./models/productModel.js');
     const items = await Product.find({ isActive: true }).sort({ createdAt: -1 }).limit(6);
-    if (!items || items.length === 0) {
-      return res.json([]);
-    }
-    return res.json(items);
+    return res.json(items || []);
   } catch (e) {
     return res.json([]);
   }
