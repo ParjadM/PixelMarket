@@ -18,10 +18,12 @@ import User from './models/userModel.js';
 
 dotenv.config();
 
-// Connect to MongoDB
-connectDB();
-
 const app = express();
+
+// Connect to MongoDB (with error handling)
+connectDB().catch(err => {
+  console.error('Database connection failed:', err);
+});
 
 // Middleware setup
 app.use(express.json());
