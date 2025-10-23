@@ -2,7 +2,7 @@
 const getApiUrl = () => {
   // In production, use the backend API URL
   if (import.meta.env.PROD) {
-    return 'https://pixelmarket-api.vercel.app';
+    return 'https://pixel-market-backend.vercel.app';
   }
   // In development, use localhost
   return 'http://localhost:5001';
