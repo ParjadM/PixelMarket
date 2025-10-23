@@ -1,8 +1,8 @@
 // API configuration for different environments
 const getApiUrl = () => {
-  // In production, use the same domain
+  // In production, use the backend API URL
   if (import.meta.env.PROD) {
-    return '';
+    return 'https://pixelmarket-api.vercel.app';
   }
   // In development, use localhost
   return 'http://localhost:5001';
