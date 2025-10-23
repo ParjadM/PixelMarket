@@ -53,6 +53,14 @@ const Header = () => {
       navigate('/');
     }
   };
+
+  // Clear all storage (for debugging)
+  const clearStorage = () => {
+    sessionStorage.clear();
+    localStorage.clear();
+    setUser(null);
+    window.location.reload();
+  };
   return (
     <header className={styles.header}>
       <div className={styles.headerInner}>

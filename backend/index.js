@@ -5,6 +5,18 @@ const app = express();
 // Basic middleware
 app.use(express.json());
 
+// CORS middleware
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  if (req.method === 'OPTIONS') {
+    res.sendStatus(200);
+  } else {
+    next();
+  }
+});
+
 // Health check endpoint
 app.get('/', (req, res) => {
   res.json({ message: 'Pixel Market API is running...' });
