@@ -96,7 +96,12 @@ app.use('/api/upload', uploadRoutes);
 
 
 const __dirname = path.resolve();
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+// On Vercel, write access is not available; serve uploads only if directory exists
+try {
+  app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+} catch {
+  // ignore in serverless
+}
 
 
 const PORT = process.env.PORT || 5001;

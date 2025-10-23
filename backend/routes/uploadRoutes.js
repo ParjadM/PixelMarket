@@ -5,13 +5,20 @@ import fs from 'fs';
 
 const router = express.Router();
 
-const uploadsDir = path.resolve('uploads');
-if (!fs.existsSync(uploadsDir)) {
-  fs.mkdirSync(uploadsDir, { recursive: true });
+// In serverless environments (Vercel), disk writes are ephemeral or disallowed.
+// Fallback: if uploads dir cannot be created, short-circuit with a helpful message.
+let uploadsDir = path.resolve('uploads');
+try {
+  if (!fs.existsSync(uploadsDir)) {
+    fs.mkdirSync(uploadsDir, { recursive: true });
+  }
+} catch {
+  uploadsDir = null;
 }
 
 const storage = multer.diskStorage({
   destination(_req, _file, cb) {
+    if (!uploadsDir) return cb(new Error('Uploads are not supported on this deployment'));
     cb(null, uploadsDir);
   },
   filename(_req, file, cb) {
