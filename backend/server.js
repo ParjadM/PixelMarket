@@ -4,23 +4,31 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import connectDB from './config/db.js';
 
+// Route imports
 import contentRoutes from './routes/contentRoutes.js';
 import amazonRoutes from './routes/amazonRoutes.js';
 import clickBankRoutes from './routes/clickBankRoutes.js';
 import bayPartnerRoutes from './routes/bayPartnerRoutes.js';
 import userRoutes from './routes/userRoutes.js';
+import productRoutes from './routes/productRoutes.js';
+import aiRoutes from './routes/aiRoutes.js';
+import uploadRoutes from './routes/uploadRoutes.js';
+import path from 'path';
 import User from './models/userModel.js';
 
 dotenv.config();
 
+// Connect to MongoDB
 connectDB();
 
 const app = express();
 
+// Middleware setup
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+// CORS configuration
 const allowedOrigins = [
   process.env.CLIENT_URL,
   'http://localhost:5173',
@@ -42,15 +50,24 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+// Health check endpoint
 app.get('/', (req, res) => {
   res.send('Pixel Market API is running...');
 });
 
+// API routes
 app.use('/api/content', contentRoutes);
 app.use('/api/amazon', amazonRoutes);
 app.use('/api/clickbank', clickBankRoutes);
 app.use('/api/baypartner', bayPartnerRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/products', productRoutes);
+app.use('/api/ai', aiRoutes);
+app.use('/api/upload', uploadRoutes);
+
+
+const __dirname = path.resolve();
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 
 const PORT = process.env.PORT || 5001;
@@ -58,14 +75,23 @@ const PORT = process.env.PORT || 5001;
 app.listen(PORT, async () => {
   console.log(`Server is running on port ${PORT}`);
   try {
+
     const adminEmail = 'admin@example.com';
-    const exists = await User.findOne({ email: adminEmail });
-    if (!exists) {
+    const adminExists = await User.findOne({ email: adminEmail });
+    if (!adminExists) {
       await User.create({ name: 'Admin', email: adminEmail, password: '1234', role: 'admin' });
       console.log('Seeded default admin user.');
     }
+
+
+    const userEmail = 'user@example.com';
+    const userExists = await User.findOne({ email: userEmail });
+    if (!userExists) {
+      await User.create({ name: 'Regular User', email: userEmail, password: '1234', role: 'user' });
+      console.log('Seeded default regular user.');
+    }
   } catch (e) {
-    console.error('Admin seed failed:', e.message);
+    console.error('User seed failed:', e.message);
   }
 });
 

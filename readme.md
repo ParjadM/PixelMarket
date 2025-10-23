@@ -35,10 +35,10 @@ bcryptjs
 jsonwebtoken
 express-async-handler
 cookie-parser 
-
+nodemailer
 
 admin user:
 admin@example.com
 
 regular user:
-test@example.com
+user@example.com

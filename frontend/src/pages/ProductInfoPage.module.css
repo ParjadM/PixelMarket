@@ -11,27 +11,31 @@
 
 .piBody {
   display: grid;
-  grid-template-columns: 1fr 320px;
+  grid-template-columns: 1fr 480px; 
   gap: 4rem;
   align-items: start;
   margin-bottom: 3rem;
 }
 
+.piDesc { width: 100%; }
 .piDesc p {
   margin: 0;
   line-height: 1.4;
-  max-width: 360px;
+  max-width: 100%;
 }
 
 .piImageWrap {
-  width: 320px;
+  width: 100%;
+  max-width: 960px; 
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .piImage {
   width: 100%;
-  height: 100%;
+  height: auto;
+  max-height: 85vh; 
   object-fit: contain;
   background: #fff;
   padding: 0;
@@ -50,7 +54,6 @@
 
 .piLinks {
   display: flex;
-  justify-content: space-between;
   max-width: 760px;
   margin: 0 auto 1.5rem;
   flex-wrap: wrap;
@@ -97,6 +100,72 @@
   text-align: center;
 }
 
+.reactionButtons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  justify-content: center;
+}
+
+.reactionBtn {
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.likeBtn {
+  background-color: #e8f5e8;
+  color: #2d5a2d;
+  border: 2px solid #c8e6c8;
+}
+
+.likeBtn:hover {
+  background-color: #d4edda;
+  border-color: #a8d5a8;
+}
+
+.dislikeBtn {
+  background-color: #ffeaea;
+  color: #8b2635;
+  border: 2px solid #ffc7c7;
+}
+
+.dislikeBtn:hover {
+  background-color: #f8d7da;
+  border-color: #f5a5a5;
+}
+
+.reactionBtn.active {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.likeBtn.active {
+  background-color: #28a745;
+  color: white;
+  border-color: #1e7e34;
+}
+
+.dislikeBtn.active {
+  background-color: #dc3545;
+  color: white;
+  border-color: #bd2130;
+}
+
+.reactionBtn[disabled],
+.reactionBtn[aria-disabled='true'] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  filter: grayscale(0.15);
+}
+
 @media (max-width: 900px) {
   .piBody {
     grid-template-columns: 1fr;
@@ -108,7 +177,7 @@
   .piImage,
   .piImage.placeholder {
     width: 100%;
-    max-width: 320px;
+    max-width: 100%;
   }
   .piLinks {
     justify-content: center;

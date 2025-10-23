@@ -1,12 +1,15 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styles from './ProductCard.module.css';
 
+// Reusable product card component
 const ProductCard = ({ product }) => {
-  const title = product.title || product.productName;
+  // Extract product data with fallbacks
+  const title = product.name || product.title || product.productName;
   const imageUrl = product.imageUrl;
   const link = product.detailPageURL || product.affiliateUrl || product.buyUrl;
   const navigate = useNavigate();
+  const id = product._id || product.id || product.asin || product.sku;
 
   return (
     <div className={styles.productCard}>
@@ -23,7 +26,7 @@ const ProductCard = ({ product }) => {
       <div className={styles.pcActions}>
         <button
           className={styles.pcBtn}
-          onClick={() => navigate(`/product/${product.id}`, { state: { product } })}
+          onClick={() => navigate(`/product/${id}`, { state: { product: { ...product, id } } })}
         >
           View Product
         </button>

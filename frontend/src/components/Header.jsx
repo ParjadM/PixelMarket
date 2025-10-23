@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, Link, useNavigate, useLocation } from 'react-router-dom';
 import styles from './Header.module.css';
+import logoSrc from '../images/Logo.jpg';
 
+// Navigation header with user authentication state
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  
+  // Get user from storage on mount
   const [user, setUser] = useState(() => {
     try {
       const raw = sessionStorage.getItem('pm_user') || localStorage.getItem('pm_user');
@@ -14,6 +18,7 @@ const Header = () => {
     }
   });
 
+  // Sync user state across tabs
   useEffect(() => {
     const syncUser = () => {
       try {
@@ -37,6 +42,7 @@ const Header = () => {
     }
   }, [location]);
 
+  // Handle user logout
   const handleLogout = () => {
     try {
       sessionStorage.removeItem('pm_user');
@@ -51,7 +57,10 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.headerInner}>
         <div className={styles.logo}>
-          <Link to="/">PixelMarket</Link>
+          <Link to="/" className={styles.logoLink}>
+            <img src={logoSrc} alt="PixelMarket logo" className={styles.logoImg} />
+            <span className={styles.logoText}>PixelMarket</span>
+          </Link>
         </div>
         <nav className={styles.mainNav}>
           <ul>
@@ -72,6 +81,9 @@ const Header = () => {
                     <NavLink to="/admin">Dashboard</NavLink>
                   </li>
                 )}
+                <li>
+                  <NavLink to="/profile">Profile</NavLink>
+                </li>
                 <li>
                   <button type="button" className={styles.logoutBtn} onClick={handleLogout}>Logout</button>
                 </li>

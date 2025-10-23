@@ -12,6 +12,7 @@ const ProductCard = ({ product }) => {
   const navigate = useNavigate();
   const id = product.asin || product.id || product.sku;
 
+
   return (
     <div className={styles.productCard}>
       <div className={styles.productImageContainer}>
@@ -21,6 +22,7 @@ const ProductCard = ({ product }) => {
           <div className={styles.placeholderImage}>No Image</div>
         )}
       </div>
+      {/* reactions removed on homepage */}
       <div className={styles.productInfo}>
         <h3 className={styles.productTitle}>{title}</h3>
       </div>
@@ -45,10 +47,8 @@ const Homepage = () => {
     const fetchFeaturedProducts = async () => {
       try {
         setLoading(true);
-        const response = await axios.get('http://localhost:5001/api/amazon/search');
-        
-        setFeaturedProducts(response.data.slice(0, 3));
-        
+        const response = await axios.get('http://localhost:5001/api/products/featured/list', { withCredentials: true });
+        setFeaturedProducts(response.data || []);
       } catch (err) {
         console.error("Error fetching featured products:", err);
         setError("Could not load featured products.");

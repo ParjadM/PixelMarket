@@ -20,6 +20,7 @@ const AdminDashboard = () => {
         <div className={styles.leftActions}>
           <button type="button" className={`${styles.pillBtn} ${styles.pillGreen}`} onClick={() => navigate('/admin/products')}>Add Products</button>
           <button type="button" className={`${styles.pillBtn} ${styles.pillGreen}`} onClick={() => navigate('/admin/users')}>User Detail</button>
+          <button type="button" className={`${styles.pillBtn} ${styles.pillGreen}`} onClick={() => navigate('/admin/about')}>About Me</button>
         </div>
       </div>
 

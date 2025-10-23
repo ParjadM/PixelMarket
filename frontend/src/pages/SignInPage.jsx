@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './SignInPage.module.css';
 
+// User authentication page
 const SignInPage = () => {
   const navigate = useNavigate();
   const [form, setForm] = useState({ email: '', password: '' });
@@ -27,7 +28,12 @@ const SignInPage = () => {
         throw new Error(data.message || 'Login failed');
       }
       const data = await res.json();
-      sessionStorage.setItem('pm_user', JSON.stringify({ _id: data._id, name: data.name, email: data.email, role: data.role }));
+      const storedUser = { _id: data._id, name: data.name, email: data.email, role: data.role };
+      sessionStorage.setItem('pm_user', JSON.stringify(storedUser));
+      localStorage.setItem('pm_user', JSON.stringify(storedUser));
+      if (data.token) {
+        localStorage.setItem('pm_token', data.token);
+      }
       navigate('/');
     } catch (err) {
       setError(err.message || 'Login failed');

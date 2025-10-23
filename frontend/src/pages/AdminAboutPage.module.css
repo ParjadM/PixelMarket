@@ -1,0 +1,59 @@
+.page {
+  background: #D1D0D3; 
+  min-height: 100vh;
+  padding: 1.5rem 1rem 6rem;
+}
+
+.title {
+  text-align: center;
+  margin: 0.2rem 0 1.4rem;
+  font-size: 0.95rem; 
+  letter-spacing: 0.5px;
+}
+
+.frameWrap {
+  width: min(1140px, 95%);
+  margin: 0 auto 2rem;
+  background: #19291D; 
+  padding: 22px; 
+}
+
+.inner {
+  background: #e9eaee; 
+  height: 345px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.textarea {
+  width: 90%;
+  height: 70%;
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  font: inherit;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.btn {
+  border: none;
+  border-radius: 999px;
+  padding: 0.7rem 2.2rem;
+  font-weight: 600;
+}
+
+.save { background: #b3c613; color: #1c1c1c; }
+.cancel { background: #7fb889; color: #0c2a12; }
+
+@media (max-width: 520px) {
+  .inner { height: 200px; }
+}
+
+

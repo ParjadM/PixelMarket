@@ -9,10 +9,26 @@
   padding: 0.75rem 24px;
 }
 
-.logo a {
+.logoLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   text-decoration: none;
-  font-size: 2rem;        
-  font-weight: 600;
+}
+
+.logoImg {
+  width: 32px;
+  height: 32px;
+  max-width: 32px;
+  max-height: 32px;
+  object-fit: contain;
+  display: block;
+  border-radius: 6px;
+}
+
+.logoText {
+  font-size: 1.6rem;
+  font-weight: 700;
   color: #000;
 }
 

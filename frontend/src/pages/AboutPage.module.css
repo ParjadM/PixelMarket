@@ -1,0 +1,32 @@
+.page {
+  background: #D1D0D3; 
+  min-height: 100vh;
+  padding: 2rem 1rem 6rem;
+}
+
+.wrapper {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  margin: 1.2rem 0 1.6rem;
+}
+
+.card {
+  background: #dcffbf; 
+  padding: 2rem 3rem;
+  margin: 0 3.5rem; 
+  min-height: 300px;
+}
+
+.line { margin: 0.6rem 0; }
+
+@media (max-width: 900px) {
+  .card { margin: 0 1rem; }
+}
+
+

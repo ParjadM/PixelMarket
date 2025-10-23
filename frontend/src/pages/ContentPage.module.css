@@ -2,6 +2,28 @@
   padding: 2rem 0 3rem;
 }
 
+.headerBar {
+  position: relative;
+  width: min(1200px, 100%);
+  margin: 0 auto 1rem;
+  padding: 0 1rem;
+}
+
+.searchBarAbsolute {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.searchInput {
+  width: 25%;
+  min-width: 220px;
+  padding: 0.6rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+}
+
 .pageTitle {
   text-align: center;
   font-size: 2.25rem;
@@ -61,6 +83,40 @@
 
 .errorMessage {
   color: #c44569;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.pageBtn {
+  background: #b3c613;
+  color: #000;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.pageBtn:disabled {
+  background: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.pageBtn:hover:not(:disabled) {
+  background: #a4b710;
+}
+
+.pageInfo {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
 }
 
 

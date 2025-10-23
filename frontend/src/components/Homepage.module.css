@@ -134,6 +134,59 @@
   font-size: 0.9rem;
 }
 
+.reactionButtons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.reactionBtn {
+  border: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 20px;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.likeBtn {
+  background-color: #e8f5e8;
+  color: #2d5a2d;
+  border: 2px solid #c8e6c8;
+}
+
+.likeBtn:hover {
+  background-color: #d4edda;
+  border-color: #a8d5a8;
+}
+
+.dislikeBtn {
+  background-color: #ffeaea;
+  color: #8b2635;
+  border: 2px solid #ffc7c7;
+}
+
+.dislikeBtn:hover {
+  background-color: #f8d7da;
+  border-color: #f5a5a5;
+}
+
+.active {
+  transform: scale(1.03);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.reactionBtn[disabled],
+.reactionBtn[aria-disabled='true'] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  filter: grayscale(0.15);
+}
+
 @media (max-width: 900px) {
   .featuredProductsGrid {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
