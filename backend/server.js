@@ -37,8 +37,10 @@ const allowedOrigins = [
   'http://127.0.0.1:5173',
   'http://localhost:3000',
   'http://127.0.0.1:3000',
+  // Deployed frontend domains
   'https://pixelmarket.vercel.app',
   'https://pixelmarket-git-main.vercel.app',
+  'https://pixel-market-green.vercel.app',
 ].filter(Boolean);
 
 const corsOptions = {
