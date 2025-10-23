@@ -101,26 +101,30 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 const PORT = process.env.PORT || 5001;
 
-app.listen(PORT, async () => {
-  console.log(`Server is running on port ${PORT}`);
-  try {
+const isVercel = Boolean(process.env.VERCEL);
 
-    const adminEmail = 'admin@example.com';
-    const adminExists = await User.findOne({ email: adminEmail });
-    if (!adminExists) {
-      await User.create({ name: 'Admin', email: adminEmail, password: '1234', role: 'admin' });
-      console.log('Seeded default admin user.');
+if (!isVercel) {
+  app.listen(PORT, async () => {
+    console.log(`Server is running on port ${PORT}`);
+    try {
+      const adminEmail = 'admin@example.com';
+      const adminExists = await User.findOne({ email: adminEmail });
+      if (!adminExists) {
+        await User.create({ name: 'Admin', email: adminEmail, password: '1234', role: 'admin' });
+        console.log('Seeded default admin user.');
+      }
+
+      const userEmail = 'user@example.com';
+      const userExists = await User.findOne({ email: userEmail });
+      if (!userExists) {
+        await User.create({ name: 'Regular User', email: userEmail, password: '1234', role: 'user' });
+        console.log('Seeded default regular user.');
+      }
+    } catch (e) {
+      console.error('User seed failed:', e.message);
     }
+  });
+}
 
-
-    const userEmail = 'user@example.com';
-    const userExists = await User.findOne({ email: userEmail });
-    if (!userExists) {
-      await User.create({ name: 'Regular User', email: userEmail, password: '1234', role: 'user' });
-      console.log('Seeded default regular user.');
-    }
-  } catch (e) {
-    console.error('User seed failed:', e.message);
-  }
-});
+export default app;
 
