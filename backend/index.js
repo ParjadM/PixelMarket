@@ -1,18 +1,13 @@
 const express = require('express');
-const cors = require('cors');
 
 const app = express();
 
-// Middleware
+// Basic middleware
 app.use(express.json());
-app.use(cors({
-  origin: ['http://localhost:5173', 'https://pixel-market-green.vercel.app'],
-  credentials: true
-}));
 
 // Health check endpoint
 app.get('/', (req, res) => {
-  res.send('Pixel Market API is running...');
+  res.json({ message: 'Pixel Market API is running...' });
 });
 
 // Mock data endpoints
@@ -51,11 +46,6 @@ app.get('/api/products/category/:category', (req, res) => {
 // Catch all route
 app.get('*', (req, res) => {
   res.json({ message: 'API endpoint not found', path: req.path });
-});
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
 });
 
 module.exports = app;
