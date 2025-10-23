@@ -15,7 +15,7 @@ const UserDetails = () => {
   const fetchUsers = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:5001/api/users', {
+      const response = await fetch('buildApiUrl('')/api/users', {
         credentials: 'include',
       });
       
@@ -39,7 +39,7 @@ const UserDetails = () => {
     }
 
     try {
-      const response = await fetch(`http://localhost:5001/api/users/${userId}`, {
+      const response = await fetch(`buildApiUrl('')/api/users/${userId}`, {
         method: 'DELETE',
         credentials: 'include',
       });

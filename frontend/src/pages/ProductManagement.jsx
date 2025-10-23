@@ -15,7 +15,7 @@ const ProductManagement = () => {
   const fetchProducts = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:5001/api/products', {
+      const response = await fetch('buildApiUrl('')/api/products', {
         credentials: 'include',
       });
       
@@ -39,7 +39,7 @@ const ProductManagement = () => {
     }
 
     try {
-      const response = await fetch(`http://localhost:5001/api/products/${productId}`, {
+      const response = await fetch(`buildApiUrl('')/api/products/${productId}`, {
         method: 'DELETE',
         credentials: 'include',
       });

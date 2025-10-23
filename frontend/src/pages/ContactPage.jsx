@@ -30,7 +30,7 @@ const ContactPage = () => {
     setStatus('');
     setSubmitting(true);
     try {
-      const res = await fetch('http://localhost:5001/api/content/contact', {
+      const res = await fetch('buildApiUrl('')/api/content/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

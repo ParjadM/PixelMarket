@@ -35,11 +35,13 @@ const allowedOrigins = [
   'http://127.0.0.1:5173',
   'http://localhost:3000',
   'http://127.0.0.1:3000',
+  'https://pixelmarket.vercel.app',
+  'https://pixelmarket-git-main.vercel.app',
 ].filter(Boolean);
 
 const corsOptions = {
   origin: (origin, callback) => {
-    
+    // Allow all origins in development
     if (process.env.NODE_ENV !== 'production') return callback(null, true);
     if (!origin) return callback(null, true);
     if (allowedOrigins.includes(origin)) return callback(null, true);

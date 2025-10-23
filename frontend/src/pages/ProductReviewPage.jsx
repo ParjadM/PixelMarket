@@ -23,7 +23,7 @@ const ProductReviewPage = () => {
   useEffect(() => {
     const load = async () => {
       try {
-        const res = await fetch(`http://localhost:5001/api/products/${productId}/reviews`);
+        const res = await fetch(`buildApiUrl('')/api/products/${productId}/reviews`);
         const data = await res.json();
         setReviews(Array.isArray(data) ? data : []);
       } catch {
@@ -37,7 +37,7 @@ const ProductReviewPage = () => {
     e.preventDefault();
     if (!user) return;
     try {
-      const res = await fetch(`http://localhost:5001/api/products/${productId}/reviews`, {
+      const res = await fetch(`buildApiUrl('')/api/products/${productId}/reviews`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -75,7 +75,7 @@ const ProductReviewPage = () => {
                       className={`${styles.piBtn} ${styles.piBtnBack}`}
                       onClick={async () => {
                         try {
-                          const res = await fetch(`http://localhost:5001/api/products/${productId}/reviews/${r._id}`, {
+                          const res = await fetch(`buildApiUrl('')/api/products/${productId}/reviews/${r._id}`, {
                             method: 'DELETE',
                             credentials: 'include',
                           });

@@ -28,7 +28,7 @@ const RegisterPage = () => {
       return;
     }
     try {
-      const res = await fetch('http://localhost:5001/api/users', {
+      const res = await fetch('buildApiUrl('')/api/users', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
+import { buildApiUrl } from '../utils/api';
 import styles from './ContentPage.module.css';
 
 // Product catalog page with category filtering and pagination
@@ -25,9 +26,9 @@ const ContentPage = () => {
       try {
         setLoading(true);
         const [tvRes, computerRes, speakerRes] = await Promise.all([
-          fetch('http://localhost:5001/api/products/category/TV'),
-          fetch('http://localhost:5001/api/products/category/Computer'),
-          fetch('http://localhost:5001/api/products/category/Speaker')
+          fetch(buildApiUrl('/api/products/category/TV')),
+          fetch(buildApiUrl('/api/products/category/Computer')),
+          fetch(buildApiUrl('/api/products/category/Speaker'))
         ]);
 
         const tvData = await tvRes.json();

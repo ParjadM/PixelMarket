@@ -47,7 +47,7 @@ const Homepage = () => {
     const fetchFeaturedProducts = async () => {
       try {
         setLoading(true);
-        const response = await axios.get('http://localhost:5001/api/products/featured/list', { withCredentials: true });
+        const response = await axios.get('buildApiUrl('')/api/products/featured/list', { withCredentials: true });
         setFeaturedProducts(response.data || []);
       } catch (err) {
         console.error("Error fetching featured products:", err);
