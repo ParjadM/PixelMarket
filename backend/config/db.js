@@ -2,11 +2,12 @@ import mongoose from 'mongoose';
 
 const connectDB = async () => {
   try {
-    if (!process.env.MONGODB_URI) {
-      console.log('No MONGODB_URI provided, skipping database connection');
+    const uri = process.env.MONGODB_URI || process.env.MONGO_URI;
+    if (!uri) {
+      console.log('No MONGODB_URI/MONGO_URI provided, skipping database connection');
       return;
     }
-    const conn = await mongoose.connect(process.env.MONGODB_URI);
+    const conn = await mongoose.connect(uri);
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
     console.error(`Database connection error: ${error.message}`);

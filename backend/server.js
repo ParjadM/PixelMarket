@@ -59,37 +59,29 @@ app.get('/', (req, res) => {
   res.send('Pixel Market API is running...');
 });
 
-// Mock data endpoints for testing
-app.get('/api/products/featured/list', (req, res) => {
-  res.json([
-    {
-      _id: '1',
-      name: 'Sample TV',
-      imageUrl: 'https://via.placeholder.com/300x200',
-      price: 299.99,
-      category: 'TV'
-    },
-    {
-      _id: '2', 
-      name: 'Sample Computer',
-      imageUrl: 'https://via.placeholder.com/300x200',
-      price: 599.99,
-      category: 'COMPUTER'
+// Feature products endpoint (real data if available)
+app.get('/api/products/featured/list', async (req, res) => {
+  try {
+    const { default: Product } = await import('./models/productModel.js');
+    const items = await Product.find({ isActive: true }).sort({ createdAt: -1 }).limit(6);
+    if (!items || items.length === 0) {
+      return res.json([]);
     }
-  ]);
+    return res.json(items);
+  } catch (e) {
+    return res.json([]);
+  }
 });
 
-app.get('/api/products/category/:category', (req, res) => {
-  const { category } = req.params;
-  res.json([
-    {
-      _id: `${category.toLowerCase()}-1`,
-      name: `Sample ${category}`,
-      imageUrl: 'https://via.placeholder.com/300x200',
-      price: 199.99,
-      category: category.toUpperCase()
-    }
-  ]);
+app.get('/api/products/category/:category', async (req, res) => {
+  try {
+    const { category } = req.params;
+    const { default: Product } = await import('./models/productModel.js');
+    const items = await Product.find({ isActive: true, category: category.toUpperCase() }).sort({ createdAt: -1 });
+    return res.json(items || []);
+  } catch (e) {
+    return res.json([]);
+  }
 });
 
 // API routes
