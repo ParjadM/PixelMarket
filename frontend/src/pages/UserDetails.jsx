@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { buildApiUrl } from '../utils/api';
 import { useNavigate } from 'react-router-dom';
+import { buildApiUrl } from '../utils/api';
 import styles from './UserDetails.module.css';
+import { buildApiUrl } from '../utils/api';
 
 const UserDetails = () => {
   const navigate = useNavigate();
@@ -15,7 +18,7 @@ const UserDetails = () => {
   const fetchUsers = async () => {
     try {
       setLoading(true);
-      const response = await fetch('buildApiUrl('')/api/users', {
+      const response = await fetch('buildApiUrl('/')api/users', {
         credentials: 'include',
       });
       
@@ -39,7 +42,7 @@ const UserDetails = () => {
     }
 
     try {
-      const response = await fetch(`buildApiUrl('')/api/users/${userId}`, {
+      const response = await fetch(`buildApiUrl('/')api/users/${userId}`, {
         method: 'DELETE',
         credentials: 'include',
       });

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { buildApiUrl } from '../utils/api';
 import styles from './AboutPage.module.css';
+import { buildApiUrl } from '../utils/api';
 
 const AboutPage = () => {
   const [body, setBody] = useState('');
@@ -7,7 +9,7 @@ const AboutPage = () => {
   useEffect(() => {
     const load = async () => {
       try {
-        const res = await fetch('buildApiUrl('')/api/content/about', { credentials: 'include' });
+        const res = await fetch('buildApiUrl('/')api/content/about', { credentials: 'include' });
         const data = await res.json();
         setBody(data.body || '');
       } catch {

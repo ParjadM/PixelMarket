@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { buildApiUrl } from '../utils/api';
 import { useNavigate } from 'react-router-dom';
+import { buildApiUrl } from '../utils/api';
 import styles from './ProductManagement.module.css';
+import { buildApiUrl } from '../utils/api';
 
 const ProductManagement = () => {
   const navigate = useNavigate();
@@ -15,7 +18,7 @@ const ProductManagement = () => {
   const fetchProducts = async () => {
     try {
       setLoading(true);
-      const response = await fetch('buildApiUrl('')/api/products', {
+      const response = await fetch('buildApiUrl('/')api/products', {
         credentials: 'include',
       });
       
@@ -39,7 +42,7 @@ const ProductManagement = () => {
     }
 
     try {
-      const response = await fetch(`buildApiUrl('')/api/products/${productId}`, {
+      const response = await fetch(`buildApiUrl('/')api/products/${productId}`, {
         method: 'DELETE',
         credentials: 'include',
       });

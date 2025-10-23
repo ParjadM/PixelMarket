@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { buildApiUrl } from '../utils/api';
 import styles from './AdminAboutPage.module.css';
+import { buildApiUrl } from '../utils/api';
 
 const AdminAboutPage = () => {
   const [body, setBody] = useState('');
@@ -11,7 +13,7 @@ const AdminAboutPage = () => {
     const load = async () => {
       try {
         setLoading(true);
-        const res = await fetch('buildApiUrl('')/api/content/about', { credentials: 'include' });
+        const res = await fetch('buildApiUrl('/')api/content/about', { credentials: 'include' });
         const data = await res.json();
         const defaultText = "HI, THIS IS ABOUT THE PAGE\nMY NAME IS PARJAD MINOOEI AND I'M THE DEVELOPER OF THIS WEBSITE";
         setBody(data.body && data.body.trim() ? data.body : defaultText);
@@ -28,7 +30,7 @@ const AdminAboutPage = () => {
     try {
       setSaving(true);
       setError('');
-      const res = await fetch('buildApiUrl('')/api/content/about', {
+      const res = await fetch('buildApiUrl('/')api/content/about', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

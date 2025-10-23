@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { buildApiUrl } from '../utils/api';
 import { useNavigate } from 'react-router-dom';
+import { buildApiUrl } from '../utils/api';
+import { buildApiUrl } from '../utils/api';
+import { buildApiUrl } from '../utils/api';
 import styles from './Homepage.module.css';
+import { buildApiUrl } from '../utils/api';
 import axios from 'axios';
+import { buildApiUrl } from '../utils/api';
 
 
 
@@ -47,7 +53,7 @@ const Homepage = () => {
     const fetchFeaturedProducts = async () => {
       try {
         setLoading(true);
-        const response = await axios.get('buildApiUrl('')/api/products/featured/list', { withCredentials: true });
+        const response = await axios.get(buildApiUrl('/api/products/featured/list'), { withCredentials: true });
         setFeaturedProducts(response.data || []);
       } catch (err) {
         console.error("Error fetching featured products:", err);

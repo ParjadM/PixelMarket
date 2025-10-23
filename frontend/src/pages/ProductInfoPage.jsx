@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { buildApiUrl } from '../utils/api';
 import { useParams, useLocation, useNavigate, Link } from 'react-router-dom';
 import { buildApiUrl } from '../utils/api';
+import { buildApiUrl } from '../utils/api';
+import { buildApiUrl } from '../utils/api';
 import styles from './ProductInfoPage.module.css';
+import { buildApiUrl } from '../utils/api';
 
 // Product detail page with like/dislike functionality
 const ProductInfoPage = () => {
@@ -58,7 +62,7 @@ const ProductInfoPage = () => {
       if (!user || !id) return;
       try {
         const token = localStorage.getItem('pm_token');
-        const res = await fetch(`buildApiUrl('')/api/products/${id}/reaction`, {
+        const res = await fetch(`buildApiUrl('/')api/products/${id}/reaction`, {
           credentials: 'include',
           headers: token ? { Authorization: `Bearer ${token}` } : undefined,
         });
@@ -83,7 +87,7 @@ const ProductInfoPage = () => {
     const next = userReaction === 'like' ? 'none' : 'like';
     try {
       const token = localStorage.getItem('pm_token');
-      const res = await fetch(`buildApiUrl('')/api/products/${product._id || id}/reaction`, {
+      const res = await fetch(`buildApiUrl('/')api/products/${product._id || id}/reaction`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', ...(token ? { Authorization: `Bearer ${token}` } : {}) },
         credentials: 'include',
@@ -102,7 +106,7 @@ const ProductInfoPage = () => {
     const next = userReaction === 'dislike' ? 'none' : 'dislike';
     try {
       const token = localStorage.getItem('pm_token');
-      const res = await fetch(`buildApiUrl('')/api/products/${product._id || id}/reaction`, {
+      const res = await fetch(`buildApiUrl('/')api/products/${product._id || id}/reaction`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', ...(token ? { Authorization: `Bearer ${token}` } : {}) },
         credentials: 'include',

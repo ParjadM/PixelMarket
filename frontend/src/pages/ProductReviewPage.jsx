@@ -1,6 +1,9 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import { buildApiUrl } from '../utils/api';
 import { useLocation, useParams, useNavigate, Link } from 'react-router-dom';
+import { buildApiUrl } from '../utils/api';
 import styles from './ProductInfoPage.module.css';
+import { buildApiUrl } from '../utils/api';
 
 const ProductReviewPage = () => {
   const { id } = useParams();
@@ -23,7 +26,7 @@ const ProductReviewPage = () => {
   useEffect(() => {
     const load = async () => {
       try {
-        const res = await fetch(`buildApiUrl('')/api/products/${productId}/reviews`);
+        const res = await fetch(`buildApiUrl('/')api/products/${productId}/reviews`);
         const data = await res.json();
         setReviews(Array.isArray(data) ? data : []);
       } catch {
@@ -37,7 +40,7 @@ const ProductReviewPage = () => {
     e.preventDefault();
     if (!user) return;
     try {
-      const res = await fetch(`buildApiUrl('')/api/products/${productId}/reviews`, {
+      const res = await fetch(`buildApiUrl('/')api/products/${productId}/reviews`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -75,7 +78,7 @@ const ProductReviewPage = () => {
                       className={`${styles.piBtn} ${styles.piBtnBack}`}
                       onClick={async () => {
                         try {
-                          const res = await fetch(`buildApiUrl('')/api/products/${productId}/reviews/${r._id}`, {
+                          const res = await fetch(`buildApiUrl('/')api/products/${productId}/reviews/${r._id}`, {
                             method: 'DELETE',
                             credentials: 'include',
                           });

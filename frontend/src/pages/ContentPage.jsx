@@ -1,8 +1,13 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { buildApiUrl } from '../utils/api';
 import { Link } from 'react-router-dom';
+import { buildApiUrl } from '../utils/api';
 import ProductCard from '../components/ProductCard';
 import { buildApiUrl } from '../utils/api';
+import { buildApiUrl } from '../utils/api';
+import { buildApiUrl } from '../utils/api';
 import styles from './ContentPage.module.css';
+import { buildApiUrl } from '../utils/api';
 
 // Product catalog page with category filtering and pagination
 const ContentPage = () => {
