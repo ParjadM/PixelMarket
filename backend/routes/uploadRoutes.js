@@ -27,11 +27,17 @@ const fileFilter = (_req, file, cb) => {
 const upload = multer({ storage, fileFilter, limits: { fileSize: 5 * 1024 * 1024 } });
 
 router.post('/', upload.single('image'), async (req, res) => {
+  console.log('Upload endpoint hit. Cloudinary env vars:', {
+    has_cloud_name: !!process.env.CLOUDINARY_CLOUD_NAME,
+    has_api_key: !!process.env.CLOUDINARY_API_KEY,
+    has_api_secret: !!process.env.CLOUDINARY_API_SECRET,
+  });
   try {
     if (!req.file) {
       return res.status(400).json({ message: 'No file uploaded' });
     }
     if (!process.env.CLOUDINARY_CLOUD_NAME) {
+      console.error('Cloudinary config missing. Check Vercel env vars.');
       return res.status(500).json({ message: 'Cloudinary is not configured' });
     }
     const result = await new Promise((resolve, reject) => {
