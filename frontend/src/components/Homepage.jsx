@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { buildApiUrl } from '../utils/api';
 import styles from './Homepage.module.css';
 import axios from 'axios';
@@ -66,7 +66,7 @@ const Homepage = () => {
       <div className={styles.heroContainer}>
         <h1 className={styles.heroTitle}>DISCOVER THE PIXELMARKET</h1>
         <p className={styles.heroSubtitle}>BUILDING DIGITAL DREAMS, ONE PIXEL AT A TIME.</p>
-        <a href="/content" className={styles.heroButton}>DISCOVER OUR CONTENT</a>
+        <Link to="/content" className={styles.heroButton}>DISCOVER OUR CONTENT</Link>
       </div>
 
       <section className={styles.featuredSection}>
