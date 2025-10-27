@@ -28,7 +28,7 @@ const ProfilePage = () => {
     const fetchMe = async () => {
       try {
         setLoading(true);
-        const res = await fetch(`buildApiUrl('/')api/users/${user._id}`, { credentials: 'include' });
+        const res = await fetch(buildApiUrl(`/api/users/${user._id}`), { credentials: 'include' });
         if (!res.ok) throw new Error('Failed to load profile');
         const data = await res.json();
         setFormData({ email: data.email || '', password: '' });
@@ -55,7 +55,7 @@ const ProfilePage = () => {
     try {
       const payload = { email: formData.email };
       if (formData.password.trim()) payload.password = formData.password;
-      const res = await fetch(`buildApiUrl('/')api/users/${user._id}`, {
+      const res = await fetch(buildApiUrl(`/api/users/${user._id}`), {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
