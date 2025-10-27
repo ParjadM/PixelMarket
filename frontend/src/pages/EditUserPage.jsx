@@ -22,7 +22,7 @@ const EditUserPage = () => {
 
   const fetchUser = async () => {
     try {
-      const response = await fetch(`buildApiUrl('/')api/users/${userId}`, {
+      const response = await fetch(buildApiUrl(`/api/users/${userId}`), {
         credentials: 'include',
       });
       
@@ -67,7 +67,7 @@ const EditUserPage = () => {
         updateData.password = formData.password;
       }
 
-      const response = await fetch(`buildApiUrl('/')api/users/${userId}`, {
+      const response = await fetch(buildApiUrl(`/api/users/${userId}`), {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
