@@ -67,7 +67,7 @@ const AddProductPage = () => {
     try {
       setError('');
       setAiLoading(true);
-      const res = await fetch('buildApiUrl('/')api/ai/generate-description', {
+      const res = await fetch(buildApiUrl('/api/ai/generate-description'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -108,7 +108,7 @@ const AddProductPage = () => {
       try {
         setError('');
         setPageLoading(true);
-        const res = await fetch(`buildApiUrl('/')api/products/${productId}`, {
+        const res = await fetch(buildApiUrl(`/api/products/${productId}`), {
           credentials: 'include',
         });
         if (!res.ok) {
@@ -141,7 +141,7 @@ const AddProductPage = () => {
     try {
       const form = new FormData();
       form.append('image', file);
-      const res = await fetch('buildApiUrl('/')api/upload', {
+      const res = await fetch(buildApiUrl('/api/upload'), {
         method: 'POST',
         body: form,
         credentials: 'include',
@@ -177,7 +177,7 @@ const AddProductPage = () => {
       };
 
       const response = await fetch(
-        isEdit ? `buildApiUrl('/')api/products/${productId}` : 'buildApiUrl('/')api/products',
+        isEdit ? buildApiUrl(`/api/products/${productId}`) : buildApiUrl('/api/products'),
         {
           method: isEdit ? 'PUT' : 'POST',
           headers: {
