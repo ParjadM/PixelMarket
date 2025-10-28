@@ -3,6 +3,7 @@ import { buildApiUrl } from '../utils/api';
 import { useParams, useNavigate } from 'react-router-dom';
 import styles from './EditUserPage.module.css';
 
+// User editing page for admins
 const EditUserPage = () => {
   const { userId } = useParams();
   const navigate = useNavigate();

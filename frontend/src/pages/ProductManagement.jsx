@@ -3,6 +3,7 @@ import { buildApiUrl } from '../utils/api';
 import { useNavigate } from 'react-router-dom';
 import styles from './ProductManagement.module.css';
 
+// Admin product management page
 const ProductManagement = () => {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);

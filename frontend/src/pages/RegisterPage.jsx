@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { buildApiUrl } from '../utils/api';
 import styles from './RegisterPage.module.css';
 
+// User registration page
 const RegisterPage = () => {
   const [form, setForm] = useState({
     username: '',

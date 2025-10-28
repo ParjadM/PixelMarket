@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Footer.module.css';
 
+// Site footer component
 const Footer = () => {
   return (
     <footer className={styles.footerContainer}>

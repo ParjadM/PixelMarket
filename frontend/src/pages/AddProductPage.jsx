@@ -3,6 +3,7 @@ import { buildApiUrl } from '../utils/api';
 import { useNavigate, useParams } from 'react-router-dom';
 import styles from './AddProductPage.module.css';
 
+// Product creation and editing page
 const AddProductPage = () => {
   const navigate = useNavigate();
   const { productId } = useParams();

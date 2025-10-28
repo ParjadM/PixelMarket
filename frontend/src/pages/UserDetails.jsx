@@ -3,6 +3,7 @@ import { buildApiUrl } from '../utils/api';
 import { useNavigate } from 'react-router-dom';
 import styles from './UserDetails.module.css';
 
+// Admin user management page
 const UserDetails = () => {
   const navigate = useNavigate();
   const [users, setUsers] = useState([]);

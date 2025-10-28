@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './AdminDashboard.module.css';
 
+// Admin dashboard page
 const AdminDashboard = () => {
   const navigate = useNavigate();
   const user = (() => {
