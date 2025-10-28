@@ -1,7 +1,7 @@
+// User data model with authentication
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 
-// User schema with authentication and role management
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema({
   timestamps: true, 
 });
 
-// Hash password before saving
+// Password hashing middleware
 userSchema.pre('save', async function (next) {
   if (!this.isModified('password')) {
     return next();

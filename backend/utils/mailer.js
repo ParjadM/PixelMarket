@@ -1,6 +1,7 @@
+// Email service utilities
 import nodemailer from 'nodemailer';
 
-// Create SMTP transporter from environment variables
+// SMTP transporter configuration
 export function createTransportFromEnv() {
   const host = process.env.SMTP_HOST;
   const port = Number(process.env.SMTP_PORT || 587);
@@ -13,7 +14,7 @@ export function createTransportFromEnv() {
   return nodemailer.createTransport({ host, port, secure, auth: { user, pass } });
 }
 
-// Send contact form email
+// Contact form email handler
 export async function sendContactEmail({ to, fromEmail, fromName, phone, message }) {
   const transport = createTransportFromEnv();
   const subject = `New contact from ${fromName || fromEmail}`;

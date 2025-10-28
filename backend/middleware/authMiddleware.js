@@ -1,7 +1,8 @@
+// Authentication and authorization middleware
 import jwt from 'jsonwebtoken';
 import User from '../models/userModel.js';
 
-// Authentication middleware - verify JWT token
+// JWT token verification
 export const protect = (req, res, next) => {
   try {
     const token = req.cookies?.jwt || (req.headers.authorization?.startsWith('Bearer ') ? req.headers.authorization.split(' ')[1] : null);
@@ -14,7 +15,7 @@ export const protect = (req, res, next) => {
   }
 };
 
-// Admin authorization middleware
+// Admin role verification
 export const adminOnly = async (req, res, next) => {
   try {
     const userId = req.user?.id;

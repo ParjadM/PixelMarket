@@ -1,6 +1,6 @@
+// Product data model
 import mongoose from 'mongoose';
 
-// Product schema with like/dislike reactions
 const productSchema = new mongoose.Schema({
   name: {
     type: String,
