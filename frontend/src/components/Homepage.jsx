@@ -6,13 +6,13 @@ import axios from 'axios';
 
 
 
+// Product card component for homepage display
 const ProductCard = ({ product }) => {
   const title = product.title || product.productName;
   const imageUrl = product.imageUrl;
   const link = product.detailPageURL || product.affiliateUrl || product.buyUrl;
   const navigate = useNavigate();
   const id = product.asin || product.id || product.sku;
-
 
   return (
     <div className={styles.productCard}>
@@ -23,7 +23,6 @@ const ProductCard = ({ product }) => {
           <div className={styles.placeholderImage}>No Image</div>
         )}
       </div>
-      {/* reactions removed on homepage */}
       <div className={styles.productInfo}>
         <h3 className={styles.productTitle}>{title}</h3>
       </div>
@@ -38,7 +37,7 @@ const ProductCard = ({ product }) => {
   );
 };
 
-
+// Homepage component with featured products
 const Homepage = () => {
   const [featuredProducts, setFeaturedProducts] = useState([]);
   const [loading, setLoading] = useState(true);

@@ -3,12 +3,12 @@ import { NavLink, Link, useNavigate, useLocation } from 'react-router-dom';
 import styles from './Header.module.css';
 import logoSrc from '../images/Logo.jpg';
 
-// Navigation header with user authentication state
+// Navigation header component
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
   
-  // Get user from storage on mount
+  // User state management
   const [user, setUser] = useState(() => {
     try {
       const raw = sessionStorage.getItem('pm_user') || localStorage.getItem('pm_user');
@@ -18,7 +18,7 @@ const Header = () => {
     }
   });
 
-  // Sync user state across tabs
+  // Cross-tab user synchronization
   useEffect(() => {
     const syncUser = () => {
       try {
@@ -42,7 +42,7 @@ const Header = () => {
     }
   }, [location]);
 
-  // Handle user logout
+  // Authentication handlers
   const handleLogout = () => {
     try {
       sessionStorage.removeItem('pm_user');
@@ -54,7 +54,6 @@ const Header = () => {
     }
   };
 
-  // Clear all storage (for debugging)
   const clearStorage = () => {
     sessionStorage.clear();
     localStorage.clear();

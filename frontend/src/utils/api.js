@@ -1,16 +1,13 @@
-// API configuration for different environments
+// Environment-based API configuration
 const getApiUrl = () => {
-  // In production, use the backend API URL
-  if (import.meta.env.PROD) {
-    return 'https://pixel-market-sgsi.vercel.app';
-  }
-  // In development, use localhost
-  return 'http://localhost:5001';
+  return import.meta.env.PROD 
+    ? 'https://pixel-market-sgsi.vercel.app'
+    : 'http://localhost:5001';
 };
 
 export const API_BASE_URL = getApiUrl();
 
-// Helper function to build full API URLs
+// URL builder utility
 export const buildApiUrl = (endpoint) => {
   return `${API_BASE_URL}${endpoint}`;
 };

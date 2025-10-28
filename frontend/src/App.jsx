@@ -19,7 +19,7 @@ import ProductReviewPage from './pages/ProductReviewPage';
 import AdminAboutPage from './pages/AdminAboutPage';
 import AboutPage from './pages/AboutPage';
 
-// Main app component with routing
+// Application routing configuration
 function App() {
   return (
     <Router>

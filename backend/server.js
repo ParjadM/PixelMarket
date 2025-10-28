@@ -1,3 +1,4 @@
+// Express server configuration
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
@@ -20,10 +21,10 @@ dotenv.config();
 
 const app = express();
 
-// Connect to MongoDB once per cold start (serverless-safe)
+// Database connection (serverless-safe)
 await connectDB();
 
-// Ensure a default admin account exists (idempotent)
+// Default admin account creation
 try {
   const adminEmail = 'admin@example.com';
   const admin = await User.findOne({ email: adminEmail });
@@ -35,19 +36,18 @@ try {
   console.log('Admin seed skipped:', e.message);
 }
 
-// Middleware setup
+// Middleware configuration
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// CORS configuration
+// CORS setup
 const allowedOrigins = [
   process.env.CLIENT_URL,
   'http://localhost:5173',
   'http://127.0.0.1:5173',
   'http://localhost:3000',
   'http://127.0.0.1:3000',
-  // Deployed frontend domains
   'https://pixelmarket.vercel.app',
   'https://pixelmarket-git-main.vercel.app',
   'https://pixel-market-green.vercel.app',
@@ -55,7 +55,6 @@ const allowedOrigins = [
 
 const corsOptions = {
   origin: (origin, callback) => {
-    // Allow all origins in development
     if (process.env.NODE_ENV !== 'production') return callback(null, true);
     if (!origin) return callback(null, true);
     if (allowedOrigins.includes(origin)) return callback(null, true);
@@ -71,7 +70,7 @@ app.get('/', (req, res) => {
   res.send('Pixel Market API is running...');
 });
 
-// Feature products endpoint (real data if available)
+// Product endpoints
 app.get('/api/products/featured/list', async (req, res) => {
   try {
     const { default: Product } = await import('./models/productModel.js');
@@ -93,7 +92,7 @@ app.get('/api/products/category/:category', async (req, res) => {
   }
 });
 
-// API routes
+// API route registration
 app.use('/api/content', contentRoutes);
 app.use('/api/amazon', amazonRoutes);
 app.use('/api/clickbank', clickBankRoutes);

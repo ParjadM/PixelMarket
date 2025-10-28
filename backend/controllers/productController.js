@@ -1,14 +1,15 @@
+// Product management controller
 import asyncHandler from 'express-async-handler';
 import mongoose from 'mongoose';
 import Product from '../models/productModel.js';
 
-// Get all active products
+// Retrieve all active products
 export const getAllProducts = asyncHandler(async (req, res) => {
   const products = await Product.find({ isActive: true }).sort({ createdAt: -1 });
   res.json(products || []);
 });
 
-// Get products by category
+// Retrieve products by category
 export const getProductsByCategory = asyncHandler(async (req, res) => {
   const { category } = req.params;
   const products = await Product.find({ 
@@ -18,9 +19,8 @@ export const getProductsByCategory = asyncHandler(async (req, res) => {
   res.json(products || []);
 });
 
-// Get single product by ID
+// Retrieve single product by ID
 export const getProductById = asyncHandler(async (req, res) => {
-  // Validate ObjectId format
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
     return res.status(400).json({ message: 'Invalid product id' });
   }

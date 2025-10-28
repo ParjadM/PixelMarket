@@ -1,6 +1,7 @@
+// MongoDB connection with serverless caching
 import mongoose from 'mongoose';
 
-// Cache the connection across serverless invocations
+// Connection cache for serverless environments
 let cached = global._mongooseConn;
 if (!cached) {
   cached = global._mongooseConn = { conn: null, promise: null };
@@ -27,7 +28,6 @@ const connectDB = async () => {
       })
       .catch((err) => {
         console.error('MongoDB connection failed:', err.message);
-        // Let callers proceed; endpoints will handle empty data
         return null;
       });
   }
