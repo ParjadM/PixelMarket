@@ -7,7 +7,9 @@ import { sendContactEmail } from '../utils/mailer.js';
 
 
 router.get('/', getContent);
+
 router.get('/about', getAbout);
+
 router.put('/about', updateAbout);
 router.post('/contact', protect, async (req, res) => {
   try {
@@ -20,6 +22,7 @@ router.post('/contact', protect, async (req, res) => {
       phone,
       message,
     });
+    
     return res.json({ message: 'Message received' });
   } catch (e) {
     return res.status(500).json({ message: e.message || 'Email send failed' });

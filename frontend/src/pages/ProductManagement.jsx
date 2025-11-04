@@ -15,6 +15,7 @@ const ProductManagement = () => {
   }, []);
 
   const fetchProducts = async () => {
+    
     try {
       setLoading(true);
       const response = await fetch(buildApiUrl('/api/products'), {

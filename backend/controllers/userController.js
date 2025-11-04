@@ -22,6 +22,7 @@ const registerUser = asyncHandler(async (req, res) => {
     role: 'user',
   });
 
+
   if (user) {
     const token = generateToken(res, user._id);
     
@@ -34,6 +35,7 @@ const registerUser = asyncHandler(async (req, res) => {
     });
   } else {
     res.status(400);
+
     throw new Error('Invalid user data');
   }
 });
@@ -50,6 +52,7 @@ export const authUser = asyncHandler(async (req, res) => {
     return res.status(401).json({ message: 'Invalid credentials' });
   }
 
+
   // Verify password
   const isMatch = await bcrypt.compare(password, user.password);
   if (!isMatch) {
@@ -65,6 +68,7 @@ export const authUser = asyncHandler(async (req, res) => {
     role: user.role,
     token,
   });
+
 });
 
 // Get all users (admin only)
@@ -75,6 +79,7 @@ export const getAllUsers = asyncHandler(async (req, res) => {
 
 export const deleteUser = asyncHandler(async (req, res) => {
   const user = await User.findById(req.params.id);
+
 
   if (!user) {
     res.status(404);
@@ -87,6 +92,7 @@ export const deleteUser = asyncHandler(async (req, res) => {
 
 export const updateUser = asyncHandler(async (req, res) => {
   const user = await User.findById(req.params.id);
+  
 
   if (!user) {
     res.status(404);

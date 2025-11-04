@@ -10,6 +10,7 @@ const AddProductPage = () => {
   const isEdit = Boolean(productId);
   const [formData, setFormData] = useState({
     name: '',
+    
     category: '',
     link: '',
     description: '',

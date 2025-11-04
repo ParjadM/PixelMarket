@@ -2,6 +2,7 @@
 import jwt from 'jsonwebtoken';
 import User from '../models/userModel.js';
 
+
 // JWT token verification
 export const protect = (req, res, next) => {
   try {
@@ -14,6 +15,7 @@ export const protect = (req, res, next) => {
     return res.status(401).json({ message: 'Not authorized' });
   }
 };
+
 
 // Admin role verification
 export const adminOnly = async (req, res, next) => {

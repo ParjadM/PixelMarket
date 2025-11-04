@@ -16,6 +16,7 @@
 .contactCard h1 {
   margin: 0 0 2.6rem;
   text-align: center;
+  
   font-size: 2.2rem;
   letter-spacing: 1px;
 }
@@ -23,6 +24,7 @@
 .formRow {
   display: grid;
   grid-template-columns: 140px 1fr;
+  
   gap: 0.9rem;
   align-items: start;
   margin-bottom: 1.4rem;

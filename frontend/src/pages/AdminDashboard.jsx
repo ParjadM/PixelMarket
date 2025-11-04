@@ -17,6 +17,7 @@ const AdminDashboard = () => {
   return (
     <div className={`main-content ${styles.adminPage}`}>
       <div className={styles.topArea}>
+        
         <h2 className={styles.welcomeText}>Welcome, {user?.name || user?.email || 'User'}</h2>
         <div className={styles.leftActions}>
           <button type="button" className={`${styles.pillBtn} ${styles.pillGreen}`} onClick={() => navigate('/admin/products')}>Add Products</button>

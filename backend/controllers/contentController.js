@@ -6,6 +6,7 @@ const getContent = asyncHandler(async (_req, res) => {
 });
 
 export const getAbout = asyncHandler(async (_req, res) => {
+  
   const doc = await About.findOne().sort({ updatedAt: -1 });
   res.json({ body: doc?.body || '' });
 });

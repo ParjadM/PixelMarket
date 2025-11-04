@@ -12,6 +12,7 @@ import clickBankRoutes from './routes/clickBankRoutes.js';
 import bayPartnerRoutes from './routes/bayPartnerRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import productRoutes from './routes/productRoutes.js';
+
 import aiRoutes from './routes/aiRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 import path from 'path';
@@ -24,6 +25,7 @@ const app = express();
 // Database connection (serverless-safe)
 await connectDB();
 
+
 // Default admin account creation
 try {
   const adminEmail = 'admin@example.com';
@@ -32,6 +34,7 @@ try {
     await User.create({ name: 'Admin', email: adminEmail, password: '1234', role: 'admin' });
     console.log('Default admin user created.');
   }
+
 } catch (e) {
   console.log('Admin seed skipped:', e.message);
 }
@@ -49,6 +52,7 @@ const allowedOrigins = [
   'http://localhost:3000',
   'http://127.0.0.1:3000',
   'https://pixelmarket.vercel.app',
+  
   'https://pixelmarket-git-main.vercel.app',
   'https://pixel-market-green.vercel.app',
 ].filter(Boolean);
@@ -63,6 +67,7 @@ const corsOptions = {
   credentials: true,
 };
 
+
 app.use(cors(corsOptions));
 
 // Health check endpoint
@@ -73,6 +78,7 @@ app.get('/', (req, res) => {
 // Product endpoints
 app.get('/api/products/featured/list', async (req, res) => {
   try {
+
     const { default: Product } = await import('./models/productModel.js');
     const items = await Product.find({ isActive: true }).sort({ createdAt: -1 }).limit(6);
     return res.json(items || []);
@@ -82,6 +88,7 @@ app.get('/api/products/featured/list', async (req, res) => {
 });
 
 app.get('/api/products/category/:category', async (req, res) => {
+  
   try {
     const { category } = req.params;
     const { default: Product } = await import('./models/productModel.js');

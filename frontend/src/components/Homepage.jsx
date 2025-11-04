@@ -14,6 +14,7 @@ const ProductCard = ({ product }) => {
   const navigate = useNavigate();
   const id = product.asin || product.id || product.sku;
 
+
   return (
     <div className={styles.productCard}>
       <div className={styles.productImageContainer}>
@@ -28,6 +29,7 @@ const ProductCard = ({ product }) => {
       </div>
       <button
         type="button"
+
         className={styles.productLinkButton}
         onClick={() => navigate(`/product/${id}`, { state: { product: { ...product, id } } })}
       >
@@ -40,6 +42,7 @@ const ProductCard = ({ product }) => {
 // Homepage component with featured products
 const Homepage = () => {
   const [featuredProducts, setFeaturedProducts] = useState([]);
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -52,6 +55,7 @@ const Homepage = () => {
       } catch (err) {
         console.error("Error fetching featured products:", err);
         setError("Could not load featured products.");
+        
       } finally {
         setLoading(false);
       }

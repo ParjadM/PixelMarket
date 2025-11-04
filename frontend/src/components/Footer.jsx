@@ -6,6 +6,7 @@ import styles from './Footer.module.css';
 const Footer = () => {
   return (
     <footer className={styles.footerContainer}>
+      
       <div className={styles.footerLinks}>
         <Link to="/about">About</Link>
         <Link to="/contact">Contact</Link>

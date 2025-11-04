@@ -5,4 +5,5 @@ import { getBayPartnerProducts } from '../controllers/bayPartnerController.js';
 
 router.get('/products', getBayPartnerProducts);
 
+
 export default router;

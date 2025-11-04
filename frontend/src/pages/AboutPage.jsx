@@ -8,6 +8,7 @@ const AboutPage = () => {
   useEffect(() => {
     const load = async () => {
       try {
+        
         const res = await fetch(buildApiUrl('/api/content/about'), { credentials: 'include' });
         const data = await res.json();
         setBody(data.body || '');

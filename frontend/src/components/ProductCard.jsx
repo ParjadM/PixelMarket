@@ -9,6 +9,7 @@ const ProductCard = ({ product }) => {
   const imageUrl = product.imageUrl;
   const link = product.detailPageURL || product.affiliateUrl || product.buyUrl;
   const navigate = useNavigate();
+
   const id = product._id || product.id || product.asin || product.sku;
 
   return (
@@ -21,6 +22,7 @@ const ProductCard = ({ product }) => {
         )}
       </div>
       <div className={styles.productInfo}>
+        
         <h3 className={styles.productTitle}>{title}</h3>
       </div>
       <div className={styles.pcActions}>

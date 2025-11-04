@@ -46,6 +46,7 @@ const productSchema = new mongoose.Schema({
     comment: { type: String, required: true },
     createdAt: { type: Date, default: Date.now },
   }],
+
   reactions: [{
     userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     value: { type: String, enum: ['like', 'dislike'], required: true },

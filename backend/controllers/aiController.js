@@ -1,6 +1,7 @@
 import asyncHandler from 'express-async-handler';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
+
 export const generateProductDescription = asyncHandler(async (req, res) => {
   const { name, category, link, seed } = req.body || {};
 
@@ -19,11 +20,14 @@ export const generateProductDescription = asyncHandler(async (req, res) => {
     const pick = (arr) => arr[Math.floor(rand() * arr.length)];
     const join = (parts) => parts.filter(Boolean).join(' ');
 
+
+
     const adjectives = ['reliable', 'dependable', 'well‑balanced', 'versatile', 'refined', 'thoughtful'];
     const verbs = ['simplifies', 'streamlines', 'enhances', 'elevates', 'supports'];
     const benefits = ['everyday tasks', 'workflows', 'study sessions', 'creative projects', 'home routines'];
     const users = ['students', 'remote workers', 'families', 'creators', 'travelers'];
     const traits = ['quiet performance', 'responsive controls', 'solid build quality', 'energy efficiency', 'long‑term reliability'];
+
 
     const sentences = [];
     const displayName = name || 'This product';
@@ -55,6 +59,7 @@ export const generateProductDescription = asyncHandler(async (req, res) => {
     );
 
 
+    
     for (let i = sentences.length - 1; i > 0; i--) {
       const j = Math.floor(rand() * (i + 1));
       [sentences[i], sentences[j]] = [sentences[j], sentences[i]];

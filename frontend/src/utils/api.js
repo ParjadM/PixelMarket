@@ -8,6 +8,7 @@ const getApiUrl = () => {
 export const API_BASE_URL = getApiUrl();
 
 // URL builder utility
+
 export const buildApiUrl = (endpoint) => {
   return `${API_BASE_URL}${endpoint}`;
 };

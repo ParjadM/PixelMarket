@@ -10,6 +10,7 @@ export function createTransportFromEnv() {
   if (!host || !user || !pass) {
     throw new Error('SMTP is not configured');
   }
+
   const secure = port === 465;
   return nodemailer.createTransport({ host, port, secure, auth: { user, pass } });
 }
@@ -17,6 +18,7 @@ export function createTransportFromEnv() {
 // Contact form email handler
 export async function sendContactEmail({ to, fromEmail, fromName, phone, message }) {
   const transport = createTransportFromEnv();
+  
   const subject = `New contact from ${fromName || fromEmail}`;
   const text = `Name: ${fromName}\nEmail: ${fromEmail}\nPhone: ${phone || '-'}\n\nMessage:\n${message}`;
   await transport.sendMail({

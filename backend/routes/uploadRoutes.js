@@ -36,6 +36,7 @@ router.post('/', upload.single('image'), async (req, res) => {
     if (!req.file) {
       return res.status(400).json({ message: 'No file uploaded' });
     }
+    
     if (!process.env.CLOUDINARY_CLOUD_NAME) {
       console.error('Cloudinary config missing. Check Vercel env vars.');
       return res.status(500).json({ message: 'Cloudinary is not configured' });
@@ -48,6 +49,7 @@ router.post('/', upload.single('image'), async (req, res) => {
           else resolve(uploadResult);
         }
       );
+
       stream.end(req.file.buffer);
     });
     return res.status(201).json({ url: result.secure_url, public_id: result.public_id });

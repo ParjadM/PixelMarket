@@ -9,6 +9,7 @@
 .card { background: #ffffff; padding: 1.4rem 1.6rem; margin: 0 2rem; min-height: 220px; }
 .card p { margin: 0 0 1rem; line-height: 1.5; }
 
+
 @media (max-width: 640px) { .card { margin: 0 .5rem; } }
 
 

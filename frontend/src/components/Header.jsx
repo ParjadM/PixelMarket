@@ -55,6 +55,7 @@ const Header = () => {
   };
 
   const clearStorage = () => {
+
     sessionStorage.clear();
     localStorage.clear();
     setUser(null);
@@ -99,6 +100,7 @@ const Header = () => {
           </ul>
         </nav>
       </div>
+      
     </header>
   );
 };

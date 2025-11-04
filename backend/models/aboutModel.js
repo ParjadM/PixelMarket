@@ -6,6 +6,7 @@ const aboutSchema = new mongoose.Schema({
 
 const About = mongoose.model('About', aboutSchema);
 
+
 export default About;
 
 

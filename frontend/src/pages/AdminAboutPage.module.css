@@ -14,6 +14,7 @@
 .frameWrap {
   width: min(1140px, 95%);
   margin: 0 auto 2rem;
+  
   background: #19291D; 
   padding: 22px; 
 }

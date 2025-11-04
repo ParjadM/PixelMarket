@@ -21,11 +21,13 @@ import { protect, adminOnly } from '../middleware/authMiddleware.js';
 router.get('/', getAllProducts);
 router.get('/category/:category', getProductsByCategory);
 router.get('/featured/list', getFeaturedProducts);
+
 router.get('/:id', getProductById);
 router.get('/:id/reviews', getProductReviews);
 router.post('/:id/reviews', protect, addProductReview);
 router.delete('/:id/reviews/:reviewId', protect, adminOnly, deleteProductReview);
 router.get('/:id/reaction', protect, getProductUserReaction);
+
 router.put('/:id/reaction', protect, setProductReaction);
 
 

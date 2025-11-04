@@ -13,6 +13,7 @@ const UserDetails = () => {
   useEffect(() => {
     fetchUsers();
   }, []);
+  
 
   const fetchUsers = async () => {
     try {

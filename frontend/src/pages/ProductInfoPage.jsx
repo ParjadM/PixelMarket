@@ -19,6 +19,7 @@ const ProductInfoPage = () => {
       const raw = localStorage.getItem('pm_user') || sessionStorage.getItem('pm_user');
       return raw ? JSON.parse(raw) : null;
     } catch {
+      
       return null;
     }
   });

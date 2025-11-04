@@ -25,6 +25,7 @@ const RegisterPage = () => {
       setError('All fields are required');
       return;
     }
+    
     if (form.password !== form.confirmPassword) {
       setError('Passwords do not match');
       return;

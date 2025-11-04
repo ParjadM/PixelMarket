@@ -32,6 +32,7 @@ const EditUserPage = () => {
       }
       
       const user = await response.json();
+      
       setFormData({
         email: user.email || '',
         password: '', // Don't pre-fill password

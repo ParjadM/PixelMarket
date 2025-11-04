@@ -18,6 +18,7 @@ const ContentPage = () => {
   const [tvPage, setTvPage] = useState(1);
   const [compPage, setCompPage] = useState(1);
   const [spkPage, setSpkPage] = useState(1);
+  
   const itemsPerPage = 3;
 
   // Fetch products by category on mount

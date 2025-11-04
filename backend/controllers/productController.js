@@ -11,6 +11,7 @@ export const getAllProducts = asyncHandler(async (req, res) => {
 
 // Retrieve products by category
 export const getProductsByCategory = asyncHandler(async (req, res) => {
+
   const { category } = req.params;
   const products = await Product.find({ 
     category: category.toUpperCase(), 
@@ -21,6 +22,7 @@ export const getProductsByCategory = asyncHandler(async (req, res) => {
 
 // Retrieve single product by ID
 export const getProductById = asyncHandler(async (req, res) => {
+
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
     return res.status(400).json({ message: 'Invalid product id' });
   }
@@ -98,6 +100,7 @@ export const getProductUserReaction = asyncHandler(async (req, res) => {
   const product = await Product.findById(req.params.id).select('reactions');
   if (!product) {
     res.status(404);
+
     throw new Error('Product not found');
   }
   const userId = String(req.user?.id || '');
@@ -105,7 +108,7 @@ export const getProductUserReaction = asyncHandler(async (req, res) => {
   res.json({ reaction: existing ? existing.value : null });
 });
 
-// Set user reaction (like/dislike) for a product
+//Set user reaction (like/dislike) for a product
 export const setProductReaction = asyncHandler(async (req, res) => {
   const { reaction } = req.body || {};
   if (!['like', 'dislike', 'none', null].includes(reaction)) {

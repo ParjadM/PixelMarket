@@ -21,6 +21,7 @@ const ProfilePage = () => {
   const [status, setStatus] = useState('');
 
   useEffect(() => {
+    
     if (!user) {
       navigate('/signin');
       return;

@@ -20,6 +20,7 @@ const PrivacyPage = () => {
             data. We may update this policy as our services evolve, and we will post any changes here.
           </p>
         </div>
+        
       </div>
     </div>
   );

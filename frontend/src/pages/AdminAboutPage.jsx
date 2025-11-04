@@ -14,6 +14,7 @@ const AdminAboutPage = () => {
         setLoading(true);
         const res = await fetch(buildApiUrl('/api/content/about'), { credentials: 'include' });
         const data = await res.json();
+        
         const defaultText = "HI, THIS IS ABOUT THE PAGE\nMY NAME IS PARJAD MINOOEI AND I'M THE DEVELOPER OF THIS WEBSITE";
         setBody(data.body && data.body.trim() ? data.body : defaultText);
       } catch (e) {
